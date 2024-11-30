@@ -10,9 +10,7 @@ class Time(models.Model):
 class Reservation(models.Model): # 예약자 팀 정보
     name = models.CharField(default="", max_length=50) #예약자명
 
-    number_first = models.CharField(default="", max_length=3) #010
-    number_second = models.CharField(default="", max_length=4) #0000
-    number_third = models.CharField(default="", max_length=4) #0000
+    phone_number = models.CharField(default="", max_length=50)
 
     email = models.EmailField(default="")
 

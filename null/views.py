@@ -29,16 +29,13 @@ def home(request):
 def reservation(request): #예약 하는 곳
     if request.method == "POST":
         name = request.POST['name']
-
-        number_first = request.POST['number_first']
-        number_second = request.POST['number_second']
-        number_third = request.POST['number_third']
-
+        gender = request.POST['gender']
+        age = request.POST['age']
+        phone_number = request.POST['phone_number']
         email = request.POST['email']
-
         date = request.POST['date']
 
-        reser = Reservation(name=name, number_first=number_first, number_second=number_second, number_third=number_third, email=email, date=date)
+        reser = Reservation(name=name, phone_number=phone_number, email=email, date=date, gender=gender, age=age)
         reser.save()
         return redirect(reverse('null:make_code', args=[reser.id]))
     else:
