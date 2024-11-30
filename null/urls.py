@@ -11,5 +11,6 @@ urlpatterns = [
     path('show_cube/', show_cube, name='show_cube' ),
     path('check_code/', check_code, name='check_code' ),
     path('make_code/<int:reser_id>', make_code, name='make_code' ),
+
 ]
 
