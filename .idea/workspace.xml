@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8a488874-8685-43bd-b06f-fc6b7dd2180e" name="Changes" comment="before login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/null/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/null/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/null/templates/null/reser.html" beforeDir="false" afterPath="$PROJECT_DIR$/null/templates/null/reser.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/null/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/null/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +45,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "LemonHater"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Dongguk-Developer/2024hackathon_null/",
+    "accountId": "98c4ea45-b7d8-40e9-8161-f6d6d0addad1"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -64,7 +73,7 @@
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "abc",
+    "git-widget-placeholder": "finalbackend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -127,7 +136,7 @@
       <workItem from="1732840597668" duration="13863000" />
       <workItem from="1732868060819" duration="9099000" />
       <workItem from="1732951902994" duration="5432000" />
-      <workItem from="1732963028629" duration="19256000" />
+      <workItem from="1732963028629" duration="20593000" />
     </task>
     <task id="LOCAL-00001" summary="before login">
       <option name="closed" value="true" />
@@ -150,6 +159,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="before login" />

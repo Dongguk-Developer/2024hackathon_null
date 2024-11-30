@@ -37,9 +37,9 @@ def reservation(request): #예약 하는 곳
 
         reser = Reservation(name=name, phone_number=phone_number, email=email, date=date, gender=gender, age=age)
         reser.save()
-        return redirect(reverse('null:make_code', args=[reser.id]))
+        return redirect(reverse('null:make_code', args=[reser.id])) #make_code로 가기
     else:
-        return render(request, 'null/reser.html')
+        return render(request, 'null/reser.html')#reser.html로 가기
 
 def make_code(request, reser_id):
     def generate_unique_reservation_code():
@@ -52,7 +52,7 @@ def make_code(request, reser_id):
                 return code
     reser_code = generate_unique_reservation_code()
     personal_imform = Reservation.objects.get(id=reser_id)
-    personal_imform.reser_code = reser_code
+    personal_imform.reser_code = reser_code #예약 코드 개인에게 저장
     personal_imform.save()
     return redirect(reverse('null:send_mail', args=[reser_id]))
 
