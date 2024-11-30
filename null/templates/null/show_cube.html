@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Cube with Controls</title>
+    <style>
+        canvas {
+            display: block;
+            margin: 0 auto;
+            height: 0px;
+        }
+        h1 {
+            font-weight: bold;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #666666; /* 배경색 유지 */
+            margin: 20px;
+            color: #fff; /* 텍스트를 읽기 쉽게 흰색으로 설정 */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>레이저 각인 예시</h1>
+    <canvas id="cubeCanvas"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color('gray');
+
+        function addLight(...pos) {
+  const color = 0xFFFFFF;
+  const intensity = 1;
+  const light = new THREE.DirectionalLight(color, intensity);
+//  light.position.set(-1, 2, 4);
+  light.position.set(...pos);
+  scene.add(light);
+}
+addLight(-1, 2, 4);
+addLight( 1, -1, -2);
+
+        const camera = new THREE.PerspectiveCamera(75, 400/300, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(400,300);
+
+        document.body.appendChild(renderer.domElement);
+
+        const geometry = new THREE.BoxGeometry(36, 61.9, 2);
+        const loader = new THREE.TextureLoader();
+
+        const materials =[
+            new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.5, transparent:true, side: THREE.DoubleSide, }),
+            new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.5, transparent:true, side: THREE.DoubleSide, }),
+            new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.5, transparent:true, side: THREE.DoubleSide, }),
+            new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.5, transparent:true, side: THREE.DoubleSide, }),
+            new THREE.MeshBasicMaterial({map: loader.load('{{ image.image.url }}'), transparent:true}),
+            new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.5, transparent:true, side: THREE.DoubleSide, }),
+        ];
+        const cube = new THREE.Mesh(geometry, materials);
+        scene.add(cube);
+
+        const geometry2 = new THREE.BoxGeometry(55,10,15);
+        const materials2 = new THREE.MeshBasicMaterial({map:loader.load('/media/wooden_texture.jpg')});
+
+        const cube2 = new THREE.Mesh(geometry2, materials2);
+        cube2.position.set(0,-31,0);
+        scene.add(cube2)
+
+
+        camera.position.z = 40;
+
+
+function makeInstance(geometry, color, rotY, url) {
+  const texture = loader.load(url);
+  const material = new THREE.MeshPhongMaterial({
+    color,
+    map: texture,
+    opacity: 0.5,
+    transparent: true,
+    side: THREE.DoubleSide,
+  });
+
+  const mesh = new THREE.Mesh(geometry, material);
+  scene.add(mesh);
+
+  mesh.rotation.y = rotY;
+  mesh.position.set(0,0,0.5);
+}
+
+        // OrbitControls 추가
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>

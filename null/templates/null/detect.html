@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Image</title>
+     <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #666666; /* 배경색 유지 */
+            margin: 20px;
+            color: #fff; /* 텍스트를 읽기 쉽게 흰색으로 설정 */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>X * X px 사진을 넣으면 레이저 각인 아크릴이 나옵니다!</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
