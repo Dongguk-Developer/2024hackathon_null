@@ -12,6 +12,7 @@ import random
 from .models import *
 import cv2
 import numpy as np
+from PIL import Image
 from .forms import *
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
@@ -110,7 +111,20 @@ def line_detection(request):
 
     uploaded_img = ImageFile.objects.last()
     img = cv2.imread(uploaded_img.image.path, cv2.IMREAD_GRAYSCALE)
-    img = cv2.resize(img, (300, 400))
+    img = cv2.resize(img, (758, 1531)) #1320 750
+    '''background = Image.open("./media/nightsky.png")
+    foreground = Image.open(uploaded_img.image.path)
+
+    foreground = foreground.resize((456, 606) )
+    # 이미지 합성
+    background.paste(foreground, (515, 434), foreground)
+
+    # 합성한 이미지 파일 보여주기
+    background.show()
+    background.save("./media/nightsky.png", "PNG")
+    img = cv2.imread('./media/nightsky.png', cv2.IMREAD_GRAYSCALE)
+
+    img = cv2.resize(img, (1561, 1040))''' # 이미지 합성
 
     #가우시안 블러링 - 노이즈 제거하는 거!
     gaus_img = cv2.GaussianBlur(img, (5, 5), 0.3)
@@ -128,11 +142,11 @@ def line_detection(request):
 
 
     gradient_magnitude = cv2.magnitude(sobel_x, sobel_y)
-    gradient_magnitude = np.clip(gradient_magnitude,180, 255).astype(np.uint8)
+    gradient_magnitude = np.clip(gradient_magnitude,150, 255).astype(np.uint8)
 
     image_rgba = cv2.cvtColor(gradient_magnitude, cv2.COLOR_BGR2BGRA)
 
-    black_pixels = (image_rgba[:, :, :3] == [180,180,180]).all(axis=2)
+    black_pixels = (image_rgba[:, :, :3] == [150,150,150]).all(axis=2)
 
     image_rgba[black_pixels, :3] = [255,255,255]
     image_rgba[black_pixels, 3] = 100

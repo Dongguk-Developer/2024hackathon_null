@@ -41,13 +41,13 @@
 addLight(-1, 2, 4);
 addLight( 1, -1, -2);
 
-        const camera = new THREE.PerspectiveCamera(75, 400/300, 0.1, 1000);
+        const camera = new THREE.PerspectiveCamera(75, 600/450, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(400,300);
+        renderer.setSize(600,450);
 
         document.body.appendChild(renderer.domElement);
 
-        const geometry = new THREE.BoxGeometry(36, 61.9, 2);
+        const geometry = new THREE.BoxGeometry(24, 32, 2);
         const loader = new THREE.TextureLoader();
 
         const materials =[
@@ -59,17 +59,33 @@ addLight( 1, -1, -2);
             new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.5, transparent:true, side: THREE.DoubleSide, }),
         ];
         const cube = new THREE.Mesh(geometry, materials);
+        cube.position.set(14,-5,0)
         scene.add(cube);
-
-        const geometry2 = new THREE.BoxGeometry(55,10,15);
-        const materials2 = new THREE.MeshBasicMaterial({map:loader.load('/media/wooden_texture.jpg')});
-
+        //===========================
+        '''const geometry2 = new THREE.BoxGeometry(128, 72, 2);
+        const materials2 =[
+            new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.5, transparent:true, side: THREE.DoubleSide, }),
+            new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.5, transparent:true, side: THREE.DoubleSide, }),
+            new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.5, transparent:true, side: THREE.DoubleSide, }),
+            new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.5, transparent:true, side: THREE.DoubleSide, }),
+            new THREE.MeshBasicMaterial({map: loader.load('/media/processed_dongoong.png'), transparent:true}),
+            new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.5, transparent:true, side: THREE.DoubleSide, }),
+        ];
         const cube2 = new THREE.Mesh(geometry2, materials2);
-        cube2.position.set(0,-31,0);
-        scene.add(cube2)
+        cube2.position.set(5,17,-20);
+        scene.add(cube2);'''
+        //===========================
+        const geometry3 = new THREE.BoxGeometry(110,10,30);
+        const materials3 = new THREE.MeshBasicMaterial({map:loader.load('/media/wooden_texture.jpg')});
+
+        const cube3 = new THREE.Mesh(geometry3, materials3);
+        cube3.position.set(5,-25,-10);
+        scene.add(cube3)
+        //===========================
 
 
-        camera.position.z = 40;
+
+        camera.position.z = 60;
 
 
 function makeInstance(geometry, color, rotY, url) {

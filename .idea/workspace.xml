@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8a488874-8685-43bd-b06f-fc6b7dd2180e" name="Changes" comment="before login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/null/templates/null/show_cube.html" beforeDir="false" afterPath="$PROJECT_DIR$/null/templates/null/show_cube.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/null/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/null/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +138,7 @@
       <workItem from="1732840597668" duration="13863000" />
       <workItem from="1732868060819" duration="9099000" />
       <workItem from="1732951902994" duration="5432000" />
-      <workItem from="1732963028629" duration="20593000" />
+      <workItem from="1732963028629" duration="36347000" />
     </task>
     <task id="LOCAL-00001" summary="before login">
       <option name="closed" value="true" />
